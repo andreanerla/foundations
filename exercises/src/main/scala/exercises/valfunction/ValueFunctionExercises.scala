@@ -11,8 +11,9 @@ object ValueFunctionExercises {
   // but     selectDigits("welcome") == ""
   // Note: You can use `filter` method from `String`, also check out the API of `Char`
   def selectDigits(text: String): String =
-    ???
-
+  //  text.filter((c): Char => c.isDigit)
+      text.filter(_.isDigit)
+  
   // 1b. Implement `secret` which transforms all characters in a String to '*'
   // such as secret("Welcome123") == "**********"
   // Note: Try to use a higher-order function from the String API
