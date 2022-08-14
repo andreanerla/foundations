@@ -38,7 +38,7 @@ class ValueFunctionExercisesTest extends AnyFunSuite with ScalaCheckDrivenProper
 
   //secret returns same length
   test("secret returns same length") {
-    secret("text").length == ("text").length
+    assert(secret("text").length == ("text").length)
     }
   
 
@@ -71,11 +71,24 @@ class ValueFunctionExercisesTest extends AnyFunSuite with ScalaCheckDrivenProper
 
 
 
-}
+
 
   ///////////////////////
   // Exercise 2: Point
   ///////////////////////
 
+  test("is positive: positive coordinate returns true") {
+    forAll{(x: Int, y: Int, z:Int) =>
+    assert(Point(x.max(0), y.max(0), z.max(0)).isPositive == true)
+    }
+  }
+
+  test("is even: uneven coordinates returns false") {
+    forAll{(x: Int, y: Int, z:Int) =>
+    if (x % 2 == 1 || y % 2 == 1 || z % 2 == 1)
+    assert(Point(x,y,z).isEven == false)  
+  }
+}
 
 
+}
